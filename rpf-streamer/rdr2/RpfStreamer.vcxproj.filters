@@ -3,7 +3,6 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="script.cpp" />
-    <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="scanner.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -20,7 +19,6 @@
     <ClInclude Include="..\..\inc\main.h">
       <Filter>include</Filter>
     </ClInclude>
-    <ClInclude Include="keyboard.h" />
     <ClInclude Include="scanner.h" />
     <ClInclude Include="Simpleini.h" />
   </ItemGroup>

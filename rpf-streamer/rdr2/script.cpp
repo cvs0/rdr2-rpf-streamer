@@ -31,12 +31,26 @@ std::vector<std::string> g_RpfNames{};
 
 bool LoadRpf(const char* rpfName)
 {
+	// Attempt to add the image to the list
 	auto imageIndex = g_AddImageToList(rpfName,
 		true, -1, false, 0, false, true, true, false, true);
-	if (imageIndex != -1) {
-		return g_LoadRpf(rpfName, imageIndex);
+
+	if (imageIndex == -1)
+	{
+		// Failed to add image to list, throw an exception
+		throw std::runtime_error("Failed to add image to list.");
 	}
-	return false;
+
+	// Load the RPF file using the image index
+	bool result = g_LoadRpf(rpfName, imageIndex);
+
+	if (!result)
+	{
+		// Failed to load RPF file, throw an exception
+		throw std::runtime_error("Failed to load RPF file.");
+	}
+
+	return result;
 }
 
 void UnloadRpf(const char* rpfName)
@@ -54,24 +68,26 @@ void UnloadRpf(const char* rpfName)
 }
 
 void TraverseJson(const json& j, std::vector<std::string>& result, std::string path = "") {
-	if (j.is_object()) {
-		for (const auto& entry : j.items()) {
-			std::string new_path = path;
-			if (!new_path.empty()) {
-				new_path += "/";
+	if (!j.is_null()) {
+		if (j.is_object()) {
+			for (const auto& entry : j.items()) {
+				std::string new_path = path;
+				if (!new_path.empty()) {
+					new_path += "/";
+				}
+				new_path += entry.key();
+				TraverseJson(entry.value(), result, new_path);
 			}
-			new_path += entry.key();
-			TraverseJson(entry.value(), result, new_path);
 		}
-	}
-	else if (j.is_array()) {
-		for (const auto& entry : j) {
-			TraverseJson(entry, result, path);
+		else if (j.is_array() && !j.empty()) {
+			for (const auto& entry : j) {
+				TraverseJson(entry, result, path);
+			}
 		}
-	}
-	else if (j.is_string()) {
-		std::string current_path = path + "/" + j.get<std::string>();
-		result.push_back(current_path);
+		else if (j.is_string()) {
+			std::string current_path = path + "/" + j.get<std::string>();
+			result.push_back(current_path);
+		}
 	}
 }
 

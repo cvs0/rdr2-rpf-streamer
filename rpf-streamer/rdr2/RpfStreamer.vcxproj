@@ -7,7 +7,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="scanner.cpp" />
     <ClCompile Include="script.cpp" />
@@ -17,7 +16,6 @@
     <ClInclude Include="..\..\inc\enums.h" />
     <ClInclude Include="..\..\inc\natives.h" />
     <ClInclude Include="..\..\inc\types.h" />
-    <ClInclude Include="keyboard.h" />
     <ClInclude Include="scanner.h" />
     <ClInclude Include="script.h" />
     <ClInclude Include="Simpleini.h" />
