@@ -1,0 +1,11 @@
+﻿  main.cpp
+  script.cpp
+C:\Users\cvs0_\Desktop\rdr2_modding\scripthookrdr2\samples\Pools\script.cpp(85,25): warning C4244: 'argument': conversion from 'ULONGLONG' to 'unsigned int', possible loss of data
+  Generating code
+  9 of 112 functions ( 8.0%) were compiled, the rest were copied from previous compilation.
+    4 functions were new in current compilation
+    11 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  Pools.vcxproj -> C:\Users\cvs0_\Desktop\rdr2_modding\scripthookrdr2\samples\Pools\bin\Release\Pools.asi
+  'pwsh.exe' is not recognized as an internal or external command,
+  operable program or batch file.
