@@ -1,5 +1,7 @@
 #pragma once
 
+#include <stdexcept>
+#include <string>
 #include "Windows.h"
 #include <vector>
 
